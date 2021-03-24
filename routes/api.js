@@ -4,11 +4,16 @@ var router = express.Router();
 //minecraft pinger
 const mcpinger = require('minecraft-pinger');
 
-/* GET users listing. */
+
+
+
+/* GET */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+
+/* GET */
 router.get('/:server_ip', async (req, res) => {
     let params = req.params.server_ip;
 
@@ -35,6 +40,8 @@ router.get('/:server_ip', async (req, res) => {
             })
             //res.json({online: false, status: 'offline', ip: server_ip, time_out: '10 sceond'})
         }else{
+            delete result['favicon'];
+            delete result['description'];
             res.json({
                 online: true,
                 offline: false,
