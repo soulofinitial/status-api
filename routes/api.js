@@ -40,6 +40,7 @@ router.get('/:server_ip', async (req, res) => {
         }else{
             delete result['favicon'];
             delete result['description'];
+            delete result['modinfo'];
 
             res.json({
                 status: 'online',
