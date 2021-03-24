@@ -12,7 +12,6 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-
 /* GET */
 router.get('/:server_ip', async (req, res) => {
     let params = req.params.server_ip;
@@ -32,7 +31,6 @@ router.get('/:server_ip', async (req, res) => {
             // render json result
             console.log(error)
             res.json({
-                online: false,
                 status: 'offline',
                 ip: server_ip,
                 port: port,
@@ -42,9 +40,8 @@ router.get('/:server_ip', async (req, res) => {
         }else{
             delete result['favicon'];
             delete result['description'];
+
             res.json({
-                online: true,
-                offline: false,
                 status: 'online',
                 ip: server_ip,
                 port: port,
