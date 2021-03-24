@@ -1,0 +1,3 @@
+# status-api
+
+`yarn install`
